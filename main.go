@@ -3,28 +3,37 @@ package main
 import (
 	"fmt"
 	"log"
+	"port-adapter/infrastructure"
 	"port-adapter/port"
-	"port-adapter/repository/mongodb"
 	"port-adapter/repository/mysql"
+
+	_ "gorm.io/driver/mysql"
+	_ "gorm.io/gorm"
 )
 
 func main() {
-	var repo port.UserRespository
-	useDb := "mysql"
-
-	switch useDb {
-	case "mysql":
-		repo = mysql.NewUserRespositoryMysqlImpl()
-	case "mongodb":
-		repo = mongodb.NewUserRespositoryMongodbImpl()
-	}
-
-	err := GetUser(repo)
+	db := infrastructure.NewGorm()
+	repo := mysql.NewUserRespositoryMysqlImpl(db)
+	err := Execute(repo)
 	log.Println(err)
 }
 
-func GetUser(repo port.UserRespository) error {
+func Execute(repo port.UserRespository) error {
+	// user := &entity.User{
+	// 	Name: "Aldi Tegar Prakoso",
+	// 	Age:  25,
+	// }
+
+	// user, err := repo.CreateUser(user)
+
+	// if err != nil {
+	// 	return err
+	// }
+
+	// fmt.Println(user)
+
 	user, err := repo.FindUserById(1)
+
 	if err != nil {
 		return err
 	}
