@@ -1,6 +1,6 @@
 package mysql
 
-import "adnin-port-adapter/entity"
+import "port-adapter/entity"
 
 type UserRespositoryMysqlImpl struct{}
 

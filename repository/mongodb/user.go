@@ -1,6 +1,6 @@
 package mongodb
 
-import "adnin-port-adapter/entity"
+import "port-adapter/entity"
 
 type UserRespositoryMongodbImpl struct{}
 

@@ -1,6 +1,6 @@
 package port
 
-import "adnin-port-adapter/entity"
+import "port-adapter/entity"
 
 type UserRespository interface {
 	FindUserById(id int) (*entity.User, error)

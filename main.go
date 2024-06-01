@@ -1,11 +1,11 @@
 package main
 
 import (
-	"adnin-port-adapter/port"
-	"adnin-port-adapter/repository/mongodb"
-	"adnin-port-adapter/repository/mysql"
 	"fmt"
 	"log"
+	"port-adapter/port"
+	"port-adapter/repository/mongodb"
+	"port-adapter/repository/mysql"
 )
 
 func main() {
